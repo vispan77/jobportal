@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { getGigById, submitBid } from "../api/authApi";
+import LoadingScreen from "../../components/LoadingScreen";
 
 const GigDetailsPage = () => {
     const { gigId } = useParams();
@@ -57,7 +58,8 @@ const GigDetailsPage = () => {
     };
 
     if (loading) {
-        return <p className="text-center mt-10">Loading...</p>;
+        // return <p className="text-center mt-10">Loading...</p>;
+        return <LoadingScreen message="Loading..." />
     }
 
     if (!gig) {

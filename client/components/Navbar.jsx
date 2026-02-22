@@ -127,14 +127,14 @@ const Navbar = () => {
                 Create Gig
               </Link>
 
-              <Link
+              {/* <Link
                 to="/profile"
                 onClick={() => setMobileMenu(false)}
                 className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
               >
 
                 Profile
-              </Link>
+              </Link> */}
               <Link
                 to="/dashboard"
                 onClick={() => setMobileMenu(false)}

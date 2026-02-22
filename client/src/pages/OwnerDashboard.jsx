@@ -14,6 +14,7 @@ import PostedJobsTab from "../../components/PostedJobsTab";
 import AppliedJobsTab from "../../components/AppliedJobsTab";
 import HiredJobsTab from "../../components/HiredJobsTab";
 import api from "../api/api";
+import LoadingScreen from "../../components/LoadingScreen";
 
 const OwnerDashboard = () => {
     const [user, setUser] = useState(null);
@@ -35,6 +36,7 @@ const OwnerDashboard = () => {
             toast.error("Failed to fetch user");
         }
     };
+
 
 
     //  get the user posted jobs 
@@ -164,7 +166,10 @@ const OwnerDashboard = () => {
     }, [user]);
 
     // render
-    if (loading) return <p className="text-center mt-10">Loading...</p>;
+    // if (loading) return <p className="text-center mt-10">Loading...</p>;
+    if (loading) {
+        return <LoadingScreen message="Loading..." />;
+    }
     if (!user) return <p className="text-center mt-10">You must be logged in</p>;
 
     return (

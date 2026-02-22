@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { FaDollarSign, FaUsers, FaClock } from "react-icons/fa";
 import { LuIndianRupee } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
+import LoadingScreen from "../../components/LoadingScreen";
 
 const OpenGigsPage = () => {
   const [gigs, setGigs] = useState([]);
@@ -33,13 +34,14 @@ const OpenGigsPage = () => {
 
       <input
         className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-6"
-        placeholder="Search gigs..."
+        placeholder="Search Jobs..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
 
       {loading ? (
-        <p className="text-gray-600">Loading gigs...</p>
+        // <p className="text-gray-600">Loading gigs...</p>
+        <LoadingScreen message="Loading..." />
       ) : gigs.length === 0 ? (
         <p className="text-gray-600">No gigs found</p>
       ) : (
@@ -55,11 +57,10 @@ const OpenGigsPage = () => {
                 onClick={() => navigate(`/gig/${gig._id}`)} // navigate to gig details
               >
                 <span
-                  className={`absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-semibold ${
-                    gig.status === "open"
+                  className={`absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-semibold ${gig.status === "open"
                       ? "bg-green-100 text-green-800"
                       : "bg-gray-200 text-gray-700"
-                  }`}
+                    }`}
                 >
                   {gig.status.toUpperCase()}
                 </span>
