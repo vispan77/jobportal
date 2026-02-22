@@ -12,13 +12,14 @@ import { useAuth } from "./context/AuthContext";
 import { Toaster } from "react-hot-toast";
 import GigDetailsPage from "./pages/GigDetailsPage";
 import OwnerDashboard from "./pages/OwnerDashboard";
+import LoadingScreen from "../components/LoadingScreen";
 
 const Dashboard = () => <h2 className="text-center mt-10 text-2xl">Welcome Dashboard!</h2>;
 
 function App() {
   const { user, loading } = useAuth();
 
-  if (loading) return <p className="text-center mt-10">Checking login...</p>;
+  if (loading) return <LoadingScreen message="Loading..." />;
 
   return (
     <>
