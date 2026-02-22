@@ -12,7 +12,7 @@ const cors = require("cors");
 
 app.use(
     cors({
-        origin: ["http://localhost:5173", "https://jobportal-six-liart.vercel.app"], 
+        origin: ["http://localhost:5173", "https://job-portal-neon-psi.vercel.app"], 
         credentials: true,
     })
 );
